@@ -9,8 +9,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'Artos Consulting',
-  description: 'Artos Consulting',
+  title: 'Sekretariat Heyjong',
+  description: 'Sekretariat Heyjong',
 };
 
 export default function AuthLayout({
