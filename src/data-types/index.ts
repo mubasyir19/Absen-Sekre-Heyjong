@@ -4,7 +4,14 @@ export interface LoginForm {
 }
 
 export interface Attendance {
-  // createdAt: string;
+  name: string;
+  position: string;
+  institution: string;
+  purpose: string;
+}
+
+export interface ListAttendance {
+  createdAt: string;
   name: string;
   position: string;
   institution: string;

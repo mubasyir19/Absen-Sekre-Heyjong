@@ -40,30 +40,6 @@ export default function GuestPage() {
     },
   ];
 
-  // const data = [
-  //   {
-  //     id: 1,
-  //     name: 'Maher',
-  //     position: 'staff',
-  //     institution: 'Heyjong Community',
-  //     purpose: 'Rapat koordinasi komunitas',
-  //   },
-  //   {
-  //     id: 2,
-  //     name: 'Mahdy Mubasyir',
-  //     position: 'guest',
-  //     institution: 'Gundar',
-  //     purpose: 'Kerjasama Seminar BEM',
-  //   },
-  //   {
-  //     id: 3,
-  //     name: 'Orang lain',
-  //     position: 'guest',
-  //     institution: 'Teroris',
-  //     purpose: 'ngebom basecamp',
-  //   },
-  // ];
-
   const customStyles = {
     header: {
       style: {

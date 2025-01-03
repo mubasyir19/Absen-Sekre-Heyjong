@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
-import { Attendance } from '@/data-types';
+import { ListAttendance } from '@/data-types';
 
 export default function useFetchAttendance() {
-  const [dataAttendance, setDataAttendance] = useState<Attendance[] | null>(null);
+  const [dataAttendance, setDataAttendance] = useState<ListAttendance[] | null>(null);
 
   useEffect(() => {
     async function fetchDataAttendance() {
