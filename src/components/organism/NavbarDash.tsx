@@ -4,17 +4,18 @@ import { Bars3Icon, UserIcon, ArrowRightStartOnRectangleIcon } from '@heroicons/
 import React, { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/navigation';
-// import { jwtDecode } from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 
-// interface User {
-//   id: string;
-//   name: string;
-//   username: string;
-// }
+interface User {
+  id: string;
+  name: string;
+  username: string;
+}
 
 export default function NavbarDash() {
   const router = useRouter();
   const [isOpenMenu, setIsOpenMenu] = useState<boolean>(false);
+  const [user, setUser] = useState<User | null>();
 
   const handleOpenMenu = () => {
     setIsOpenMenu(!isOpenMenu);
@@ -25,15 +26,15 @@ export default function NavbarDash() {
     router.push('/login');
   };
 
-  // useEffect(() => {
-  //   const token = Cookies.get('authToken');
+  useEffect(() => {
+    const token = Cookies.get('authToken');
 
-  //   if (token) {
-  //     const jwtToken = atob(token);
-  //     const jwtPayload = jwtDecode<User>(jwtToken);
-  //     setUser(jwtPayload);
-  //   }
-  // }, []);
+    if (token) {
+      const jwtToken = atob(token);
+      const jwtPayload = jwtDecode<User>(jwtToken);
+      setUser(jwtPayload);
+    }
+  }, []);
 
   return (
     <nav className='flex items-center justify-between rounded-xl bg-white px-4 py-3 shadow-xl'>
@@ -45,8 +46,7 @@ export default function NavbarDash() {
       <div className='flex gap-x-3 items-center'>
         <button onClick={handleOpenMenu} className='relative flex items-center px-4 gap-x-2 bg-gray-100'>
           <UserIcon className='h-5 w-auto text-secondary-blue' />
-          {/* <p>{user?.username}</p> */}
-          <p>Admin</p>
+          <p>{user?.username}</p>
           {isOpenMenu && (
             <div className='absolute top-full left-0 w-full bg-black'>
               <ul>
