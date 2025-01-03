@@ -36,11 +36,6 @@ export default function useLoginForm() {
 
       const data = await response.json();
 
-      // console.log('INI RESPONSE : ', response);
-      // console.log('INI data : ', data.data);
-      // console.log('data token : ', data.data.access_token);
-      // console.log('token ugly : ', btoa(data.data.access_token));
-
       if (response.ok) {
         const tokenBase64 = btoa(data.data.access_token);
         Cookies.set('authToken', tokenBase64, {

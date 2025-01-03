@@ -10,8 +10,6 @@ export async function middleware(req: NextRequest) {
   try {
     const token = atob(encodedToken.value);
 
-    console.log('ini token :', atob(encodedToken.value));
-
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_HEYJONG_ATTENDANCE}/verify`, {
       method: 'GET',
       headers: {
@@ -19,10 +17,7 @@ export async function middleware(req: NextRequest) {
       },
     });
 
-    // const data = await response.json();
-
     if (response.status === 200) {
-      // console.log('Token Valid:', data);
       return NextResponse.next();
     } else {
       return NextResponse.redirect(new URL('/login', req.url));
