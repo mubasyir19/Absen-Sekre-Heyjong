@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-// import Cookies from 'js-cookie';
+import Cookies from 'js-cookie';
 import { Attendance } from '@/data-types';
 
 export default function useFetchAttendance() {
@@ -8,13 +8,13 @@ export default function useFetchAttendance() {
   useEffect(() => {
     async function fetchDataAttendance() {
       try {
-        // const token = Cookies.get('authToken') ?? '';
-        // const jwtToken = atob(token);
+        const token = Cookies.get('authToken') ?? '';
+        const jwtToken = atob(token);
 
         const fetchata = await fetch(`${process.env.NEXT_PUBLIC_API_HEYJONG_ATTENDANCE}/attendance`, {
-          // headers: {
-          //   Authorization: `Bearer ${jwtToken}`,
-          // },
+          headers: {
+            Authorization: `Bearer ${jwtToken}`,
+          },
         });
         const response = await fetchata.json();
         setDataAttendance(response.data);
