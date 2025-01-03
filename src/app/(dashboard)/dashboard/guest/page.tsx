@@ -20,7 +20,6 @@ export default function GuestPage() {
   const columns: TableColumn<DataRow>[] = [
     {
       name: 'Tanggal',
-      // selector: (row) => row.createdAt,
       selector: (row) => formattedDate(row.createdAt),
     },
     {
